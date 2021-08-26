@@ -13,6 +13,7 @@
     "prettier"
   ],
   "rules": {
+    "no-unused-vars": "error",
     "no-console": "off",
     "global-require": "off",
     "import/no-dynamic-require": "off",
