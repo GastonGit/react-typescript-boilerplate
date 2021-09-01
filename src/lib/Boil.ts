@@ -5,7 +5,7 @@ export default class Boil {
         this.unboiledFood = food;
     }
 
-    getBoiledFood() {
+    getBoiledFood(): string {
         return this.boilFood();
     }
 
