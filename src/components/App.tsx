@@ -1,43 +1,31 @@
 import React from 'react';
-import logo from '../logo.svg';
 import styles from '../styles/sApp';
 import { withStyles } from '@material-ui/core';
+import Boil from '../lib/Boil';
+
+const boil = new Boil('rice');
 
 interface AppProps {
     classes: {
         App: string;
-        'App-logo': string;
         'App-header': string;
-        'App-link': string;
     };
 }
 
 class App extends React.Component<AppProps, unknown> {
     constructor(props: AppProps) {
         super(props);
+        boil.boilFood();
     }
+
     render(): JSX.Element {
         const { classes } = this.props;
+        const food = boil.getBoiledFood();
 
         return (
             <div className={classes.App}>
                 <header className={classes['App-header']}>
-                    <img
-                        src={logo}
-                        className={classes['App-logo']}
-                        alt="logo"
-                    />
-                    <p>
-                        Edit <code>src/App.tsx</code> and save to reload.
-                    </p>
-                    <a
-                        className={classes['App-link']}
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
+                    <p>{food}</p>
                 </header>
             </div>
         );
