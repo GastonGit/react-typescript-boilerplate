@@ -1,30 +1,21 @@
 import React from 'react';
-import styles from '../styles/sApp';
-import { withStyles } from '@material-ui/core';
+import '../styles/App.css';
 import Boil from '../lib/Boil';
 
 const boil = new Boil('rice');
 
-interface AppProps {
-    classes: {
-        App: string;
-        'App-header': string;
-    };
-}
-
-class App extends React.Component<AppProps, unknown> {
-    constructor(props: AppProps) {
+class App extends React.Component<unknown, unknown> {
+    constructor(props: unknown) {
         super(props);
         boil.boilFood();
     }
 
     render(): JSX.Element {
-        const { classes } = this.props;
         const food = boil.getBoiledFood();
 
         return (
-            <div className={classes.App}>
-                <header className={classes['App-header']}>
+            <div className="app">
+                <header className="app__header">
                     <p>{food}</p>
                 </header>
             </div>
@@ -32,4 +23,4 @@ class App extends React.Component<AppProps, unknown> {
     }
 }
 
-export default withStyles(styles)(App);
+export default App;
